@@ -55,6 +55,7 @@ Board: WeMos D1 Mini
 1. Take ```AUTHTOKEN``` from here:
 ![AUTHTOKEN](/pics/blk_15.png)
 2. Download [Http Shortcuts app](https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts) \
+  2.1 !!!IMPORTANT!!! to allow this app to work on background and set NO restrictions at battery saver
 ![Http Shortcuts app](/pics/http_shorts_2.png)
 3. Import prepared [shortcuts](https://github.com/byquip/blynk-remote-computer-switch/blob/main/shortcuts.zip) using ```Import from File``` 
 4. Set ```AUTHTOKEN``` to the variable ```{token}```: \
