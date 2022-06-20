@@ -1,34 +1,65 @@
 # Blynk remote computer switch
-Board: [WeMos D1 Mini]()
-app: [link](https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts) \
-app: [link](https://play.google.com/store/apps/details?id=cloud.blynk) \
-
-1. Blynk\
-  set account and device\
-  set code for device\
-  program arduino settings\
-  link to blynk [library](https://github.com/blynkkk/blynk-library) \
-  link to example [*.ino](https://github.com/blynkkk/blynk-library/blob/master/examples/Blynk.Edgent/Edgent_ESP8266/Edgent_ESP8266.ino) \
-  my arduino code [+](https://github.com/byquip/blynk-remote-computer-switch/blob/main/Edgent_ESP8266/Edgent_ESP8266.ino) \
-  TODO: Add connection to board script [in video](https://www.youtube.com/watch?v=zD4jOaNtNnA)
-2. Blynk API \
-```https://blynk.cloud/external/api/update?token={token}&v0={pc_switch_value}``` \
-```https://blynk.cloud/external/api/get?token={token}v0``` \
-```{token}``` - is your personal token for device.\
-```{pc_switch_value}``` - is variable which contains inverse of current switch state.
-
-3. http shortcuts
-  app\
-  imports shortcuts\
-  change token
 
 ---
 
 <details>
-<summary><h2>Board WeMos D1 Mini (Click to expand)</h2></summary>
+<summary><h2>Blynk account and device configuration (Click to expand)</h2></summary>
 <p>
-1. Board.\
-![Board](https://github.com/byquip/blynk-remote-computer-switch/blob/main/pics/board.png)
+  
+1. Create a Blynk account. Go to [Blynk.io](https://blynk.io).
+2. Get confirmation email and set password. \
+![Blynk](/pics/blk_1.png)
+
+3. Create a template. \
+![Template](/pics/blk_7.png) \
+![Template](/pics/blk_8.png) \
+Add virtual pin ```V0``` \
+![Virtual pin](/pics/blk_9.png) \
+![Virtual pin](/pics/blk_10.png) \
+Copy firmware configuration and set to [Edgent_ESP8266.ino](/Edgent_ESP8266/Edgent_ESP8266.ino) (lines 2-3)
+![firmware configuration](/pics/blk_11.png)
+4. Add new device. \ 
+![firmware configuration](/pics/blk_12.png) \
+![firmware configuration](/pics/blk_13.png) \
+![firmware configuration](/pics/blk_14.png) \
+ Save ```AUTHTOKEN``` for later. \
+![firmware configuration](/pics/blk_15.png)
+  
+</p>
+</details>
+
+---
+
+<details>
+<summary><h2>Arduino sketch and connection(Click to expand)</h2></summary>
+<p>
+  
+Board: WeMos D1 Mini
+1. Blynk Library to [download](https://github.com/blynkkk/blynk-library) or [here](https://github.com/byquip/blynk-remote-computer-switch/blob/main/blynk-library-master.zip)
+2. Setup board from the library. \
+![Setup board from the library.](/pics/blk_16.png)
+3. Use an [example](/Edgent_ESP8266/Edgent_ESP8266.ino) and program the board.
+4. ***Connect board and home WIFI network with [Blynk app](https://play.google.com/store/apps/details?id=cloud.blynk) from play market [in video (by timecode)](https://youtu.be/zD4jOaNtNnA?t=536)***
+5. Scheme of connections.
+![scheme](/pics/b2.png)
+  
+</p>
+</details>
+
+---
+
+<details>
+<summary><h2>Blynk API and HTTP shortcuts (Click to expand)</h2></summary>
+<p>
+
+1. Take ```AUTHTOKEN``` from here:
+![AUTHTOKEN](/pics/blk_15.png)
+2. Download [Http Shortcuts app](https://play.google.com/store/apps/details?id=ch.rmy.android.http_shortcuts) \
+![Http Shortcuts app](/pics/http_shorts_2.png)
+3. Import prepared [shortcuts](https://github.com/byquip/blynk-remote-computer-switch/blob/main/shortcuts.zip) using ```Import from File``` 
+4. Set ```AUTHTOKEN``` to the variable ```{token}```: \
+![shortcuts varianle](/pics/http_shorts_1.jpg)
+5. Set shortcut ```PC turn ON``` or ```PC turn OFF``` on homescreen holding line with shortcut.
   
 </p>
 </details>
